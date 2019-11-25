@@ -13,7 +13,6 @@ public class test {
         Node n = new Node('p', 2);
         assertEquals("(p,2)", n.toString());
         assertFalse("(p,3)".equals(n.toString()));
-
         System.out.println(n.toString());
     }
 
@@ -21,7 +20,7 @@ public class test {
     public void traversal(){
         String key = "good morning captain";
         HuffmanTrie t = new HuffmanTrie(key);
-        ArrayList<Node> ns = t.getChars();
+        ArrayList<Node> ns = t.getChar();
 
         for(Node n : ns){
             System.out.println(n.toString());
@@ -32,6 +31,8 @@ public class test {
     public void buildTrie(){
         String key = "good morning captain";
         HuffmanTrie t = new HuffmanTrie(key);
+
         t.buildTrie();
+        t.breadthFirst();
     }
 }

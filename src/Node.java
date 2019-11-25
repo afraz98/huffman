@@ -4,6 +4,7 @@ public class Node implements Comparable<Node> {
     Node left, right;
 
     public Node(){
+        character = '`';
         count = 0;
         left = right = null;
     }
@@ -14,6 +15,7 @@ public class Node implements Comparable<Node> {
     }
 
     public Node(int count, Node left, Node right){
+        character = '`';
         this.count = count;
         this.left = left;
         this.right = right;
@@ -41,6 +43,8 @@ public class Node implements Comparable<Node> {
 
     @Override
     public String toString(){
-        return new String("(" + character + "," + count + ")");
+        if(character == '`'){
+            return new String("(" + count + ")");
+        }   return new String("(" + character + "," + count + ")");
     }
 }

@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import java.util.*;
 
 public class HuffmanTrie {
     private String key;
@@ -31,20 +29,37 @@ public class HuffmanTrie {
         Collections.sort(ks);
     }
 
-    public ArrayList<Node> getChars (){
+    public ArrayList<Node> getChar(){
         return ks;
     }
 
     public void buildTrie(){
-        while(!ks.isEmpty()){
+        while(ks.size() >= 2){
             Node left = ks.remove(0);
             Node right = ks.remove(0);
-            Node parent = new Node();
 
+            Node parent = new Node();
             parent.left = left;
             parent.right = right;
-
             parent.count = left.getCount() + right.getCount();
+            ks.add(parent);
+        }
+
+        root = ks.remove(0);
+    }
+
+    public void breadthFirst(){
+        Queue<Node> traverse = new LinkedList<Node>();
+        traverse.add(root);
+        int count = 1;
+
+        while(!traverse.isEmpty()){
+
+            Node n = traverse.poll();
+            System.out.print(n.toString());
+
+            if(n.left != null){traverse.add(n.left);}
+            if(n.right != null){traverse.add(n.right);}
         }
     }
 }
