@@ -43,6 +43,7 @@ public class HuffmanTrie {
             parent.right = right;
             parent.count = left.getCount() + right.getCount();
             ks.add(parent);
+            Collections.sort(ks);
         }
 
         root = ks.remove(0);
@@ -51,15 +52,14 @@ public class HuffmanTrie {
     public void breadthFirst(){
         Queue<Node> traverse = new LinkedList<Node>();
         traverse.add(root);
-        int count = 1;
-
+        int count = 1, power = 0;
         while(!traverse.isEmpty()){
-
             Node n = traverse.poll();
             System.out.print(n.toString());
 
             if(n.left != null){traverse.add(n.left);}
             if(n.right != null){traverse.add(n.right);}
+            count++;
         }
     }
 }

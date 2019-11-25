@@ -28,8 +28,17 @@ public class test {
     }
 
     @Test
-    public void buildTrie(){
+    public void buildTrie1(){
         String key = "good morning captain";
+        HuffmanTrie t = new HuffmanTrie(key);
+
+        t.buildTrie();
+        t.breadthFirst();
+    }
+
+    @Test
+    public void buildTrie2(){
+        String key = "bookkeeper";
         HuffmanTrie t = new HuffmanTrie(key);
 
         t.buildTrie();
