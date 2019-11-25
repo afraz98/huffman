@@ -13,6 +13,7 @@ public class HuffmanTrie {
         ks = new ArrayList<Node>();
 
         traverseString();
+        buildTrie();
     }
 
     //Traverse provided string, breaking characters into occurrences.
@@ -33,7 +34,7 @@ public class HuffmanTrie {
         return ks;
     }
 
-    public void buildTrie(){
+    private void buildTrie(){
         while(ks.size() >= 2){
             Node left = ks.remove(0);
             Node right = ks.remove(0);
@@ -61,5 +62,19 @@ public class HuffmanTrie {
             if(n.right != null){traverse.add(n.right);}
             count++;
         }
+    }
+
+    public void encode(){
+        encode(root, "");
+    }
+
+    private void encode(Node n, String s){
+        if(n != null && n.left == null && n.right == null){
+            System.out.println(n.character + ": " + s);
+            return;
+        }
+
+        encode(n.left, s + "0");
+        encode(n.right, s+"1");
     }
 }

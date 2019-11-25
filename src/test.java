@@ -9,39 +9,23 @@ import static org.junit.Assert.assertFalse;
 public class test {
 
     @Test
-    public void nodeString(){
-        Node n = new Node('p', 2);
-        assertEquals("(p,2)", n.toString());
-        assertFalse("(p,3)".equals(n.toString()));
-        System.out.println(n.toString());
-    }
-
-    @Test
-    public void traversal(){
-        String key = "good morning captain";
-        HuffmanTrie t = new HuffmanTrie(key);
-        ArrayList<Node> ns = t.getChar();
-
-        for(Node n : ns){
-            System.out.println(n.toString());
-        }
-    }
-
-    @Test
-    public void buildTrie1(){
+    public void buildTrieAndEncode1(){
         String key = "good morning captain";
         HuffmanTrie t = new HuffmanTrie(key);
 
-        t.buildTrie();
+        System.out.println(key + ":");
         t.breadthFirst();
+        System.out.println();
+        t.encode();
     }
 
     @Test
-    public void buildTrie2(){
+    public void buildTrieAndEncode2() {
         String key = "bookkeeper";
         HuffmanTrie t = new HuffmanTrie(key);
-
-        t.buildTrie();
+        System.out.println(key + ":");
         t.breadthFirst();
+        System.out.println();
+        t.encode();
     }
 }

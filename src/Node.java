@@ -21,13 +21,9 @@ public class Node implements Comparable<Node> {
         this.right = right;
     }
 
-    public int getCount(){
-        return count;
-    }
+    public int getCount(){ return count; }
 
-    public char getCharacter(){
-        return character;
-    }
+    public char getCharacter(){ return character; }
 
     @Override
     public int compareTo(Node o) {
