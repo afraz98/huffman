@@ -15,7 +15,7 @@ public class Node implements Comparable<Node> {
     }
 
     public Node(int count, Node left, Node right){
-        character = '`';
+        character = '\0';
         this.count = count;
         this.left = left;
         this.right = right;
