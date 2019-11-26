@@ -28,4 +28,15 @@ public class test {
         System.out.println();
         t.encode();
     }
+
+
+    @Test
+    public void buildTrieAndEncode3() {
+        String key = "Data structures";
+        HuffmanTrie t = new HuffmanTrie(key);
+        System.out.println(key + ":");
+        t.breadthFirst();
+        System.out.println();
+        t.encode();
+    }
 }
